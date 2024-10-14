@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+// import 'package:go_router/go_router.dart';
 
-class SignedIn extends StatelessWidget {
+class SignedIn extends StatefulWidget {
+  String userName;
   // Step 5
-  const SignedIn({
+  SignedIn({
     Key? key,
+    required this.userName,
+    // this same name it will take the same value that we navgiate to the class username
   }) : super(key: key);
+
+  @override
+  State<SignedIn> createState() => _SignedInState();
+}
+
+class _SignedInState extends State<SignedIn> {
   // Step 6
   @override
   Widget build(BuildContext context) {
@@ -16,9 +26,9 @@ class SignedIn extends StatelessWidget {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             // Step 9
-            Text("Welcome username"),
+            Text("Welcome ${widget.userName}"),
             Icon(
               Icons.check_circle,
               color: Colors.green,
